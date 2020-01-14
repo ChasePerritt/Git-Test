@@ -15,17 +15,33 @@ namespace Project_Test
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("I am thinking of a number between 0 and 100");
+            int lowBound, upperBound;
+            string entry;
+            Console.WriteLine("Please enter a lower bound");
+            entry = Console.ReadLine();
+            lowBound = Convert.ToInt32(entry);
+
+            Console.WriteLine("Please enter an upper bound");
+            entry = Console.ReadLine();
+            upperBound = Convert.ToInt32(entry);
+
+            Console.Write("I am thinking of a number between ");
+            Console.Write(lowBound);
+            Console.Write(" and ");
+            Console.WriteLine(upperBound);
             Program p = new Program();
-            int randNum = p.RandomNumber(0, 100);
+            int randNum = p.RandomNumber(lowBound, upperBound);
 
             int tries = 1;
-            int userGuess = 101;
+            int userGuess = upperBound + 1;
             string guess;
 
             while(userGuess != randNum)
             {
-                Console.WriteLine("Please enter a number between 0 and 100");
+                Console.Write("Please enter a number between ");
+                Console.Write(lowBound);
+                Console.Write(" and ");
+                Console.WriteLine(upperBound);
                 guess = Console.ReadLine();
                 userGuess = Convert.ToInt32(guess);
 
